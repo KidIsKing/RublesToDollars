@@ -6,7 +6,7 @@ with open("statistics.txt", "r", encoding="utf-8") as file:
     lines = file.readlines()
     count_lines = len(lines)
 
-if count_lines > 7:
+if count_lines > 1:
     info_is_ready = True
     start_file = count_lines - 14
     end_file = count_lines - 9

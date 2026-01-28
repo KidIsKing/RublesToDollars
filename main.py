@@ -21,28 +21,33 @@ if info_is_ready:
         else:
             info_list.append(f"Изменений цены для \"{name_of_data[i]}\" нет.")
 else:
+    for i in range(5):
+        info_list.append(
+            f"Недостаточно информации для анализа \"{name_of_data[i]}\"."
+            )
     print("Для анализа курсов валют информации недостаточно...")
 
 now = datetime.strftime(datetime.now(), "%H:%M:%S %d.%m.%Y")
 
 with open("statistics.txt", "a", encoding="utf-8") as file:
     file.write(
-        f"=========== Дата: {now}. ===========\n"
+        f"============= Дата: {now}. =============\n"
         f"{valutes_of_data[0]} руб. - доллар США.\n"
         f"{valutes_of_data[1]} руб. - евро.\n"
         f"{valutes_of_data[2]} руб. - фунт стерлингов.\n"
         f"{valutes_of_data[3]} руб. - дирхам ОАЭ.\n"
         f"{valutes_of_data[4]} руб. - юань.\n"
     )
-    if info_is_ready:
-        file.write("============ Информация об изменениях ============\n")
-        for info in info_list:
-            file.write(
-                f"{info}\n"
-            )
+
+    file.write("============== Информация об изменениях ==============\n")
+    for info in info_list:
         file.write(
-                "========== Информация от Центробанка РФ ==========\n\n\n"
-            )
+            f"{info}\n"
+        )
+    file.write(
+            "============ Информация от Центробанка РФ ============\n\n\n"
+        )
+
 
 root = Tk()
 frm = ttk.Frame(root, padding=40)
