@@ -22,22 +22,16 @@ if count_lines > 7:
             if el[0] in digits and ":" not in el and el.count(".") <= 1:
                 correct_lines.append(strochka)
 
-    usd_old_data = float(correct_lines[0][0])
-    eur_old_data = float(correct_lines[1][0])
-    gbp_old_data = float(correct_lines[2][0])
-    aed_old_data = float(correct_lines[3][0])
-    cny_old_data = float(correct_lines[4][0])
-
-    price_old_data = [
-        usd_old_data,
-        eur_old_data,
-        gbp_old_data,
-        aed_old_data,
-        cny_old_data
+    old_valutes_of_data = [
+        float(correct_lines[0][0]),
+        float(correct_lines[1][0]),
+        float(correct_lines[2][0]),
+        float(correct_lines[3][0]),
+        float(correct_lines[4][0])
     ]
 else:
     info_is_ready = False
-    price_old_data = []
+    old_valutes_of_data = []
 
 
 if __name__ == "__main__":

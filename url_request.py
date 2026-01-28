@@ -9,19 +9,25 @@ response = requests.get(
 data = response.json()
 
 # Из данных находим по ключам словаря .json нужное значение с ключом
-valute_data = {
+valute_dict = {
     "Доллар США": data["Valute"]["USD"]["Value"],
     "Евро": data["Valute"]["EUR"]["Value"],
     "Фунт стерлингов": data["Valute"]["GBP"]["Value"],
     "Дирхам ОАЭ": data["Valute"]["AED"]["Value"],
     "Юань": data["Valute"]["CNY"]["Value"]
 }
+name_of_data = list(valute_dict.keys())
+valutes_of_data = list(valute_dict.values())
 
 
 if __name__ == "__main__":
     print(data)
-    print(f"Доллар США: {valute_data["Доллар США"]} руб.")
-    print(f"Евро: {valute_data["Евро"]} руб.")
-    print(f"Фунт стерлингов: {valute_data["Фунт стерлингов"]} руб.")
-    print(f"Дирхам ОАЭ: {valute_data["Дирхам ОАЭ"]} руб.")
-    print(f"Юань: {valute_data["Юань"]} руб.")
+    print(f"Доллар США: {valute_dict['Доллар США']} руб.")
+    print(f"Евро: {valute_dict['Евро']} руб.")
+    print(f"Фунт стерлингов: {valute_dict['Фунт стерлингов']} руб.")
+    print(f"Дирхам ОАЭ: {valute_dict['Дирхам ОАЭ']} руб.")
+    print(f"Юань: {valute_dict['Юань']} руб.")
+
+    print("\nКлючи и значения словаря valute_data:")
+    for key, value in valute_dict.items():
+        print(f"{key}: {value}")
