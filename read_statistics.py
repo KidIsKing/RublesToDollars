@@ -14,25 +14,17 @@ if count_lines > 1:
     lines_list = []
     for stroka in lines[start_file:end_file]:
         line = stroka.split()
-        lines_list.append(line)
-
-    correct_lines = []
-    for strochka in lines_list:
-        for el in strochka:
+        for el in line:
             if el[0] in digits and ":" not in el and el.count(".") <= 1:
-                correct_lines.append(strochka)
+                lines_list.append(line)
 
     old_valutes_of_data = [
-        float(correct_lines[0][0]),
-        float(correct_lines[1][0]),
-        float(correct_lines[2][0]),
-        float(correct_lines[3][0]),
-        float(correct_lines[4][0])
-    ]
+        float(lines_list[i][0]) for i in range(len(lines_list))
+        ]
 else:
     info_is_ready = False
     old_valutes_of_data = []
 
 
 if __name__ == "__main__":
-    print(correct_lines)
+    print(lines_list)
