@@ -27,7 +27,3 @@ if __name__ == "__main__":
     print(f"Фунт стерлингов: {valute_dict['Фунт стерлингов']} руб.")
     print(f"Дирхам ОАЭ: {valute_dict['Дирхам ОАЭ']} руб.")
     print(f"Юань: {valute_dict['Юань']} руб.")
-
-    print("\nКлючи и значения словаря valute_data:")
-    for key, value in valute_dict.items():
-        print(f"{key}: {value}")

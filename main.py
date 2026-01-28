@@ -77,7 +77,12 @@ def visual():
     window.mainloop()
 
 
-info_list = save_change_prices()
-save_change_prices()
-save_info_prices(info_list)
-visual()
+def main():
+    info_list = save_change_prices()
+    save_change_prices()
+    save_info_prices(info_list)
+    visual()
+
+
+if __name__ == "__main__":
+    main()

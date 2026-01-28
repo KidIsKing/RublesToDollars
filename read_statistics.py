@@ -30,7 +30,3 @@ def get_old_info_prices():
 
 
 old_valutes_of_data, info_is_ready = get_old_info_prices()
-
-
-# if __name__ == "__main__":
-#     print(lines_list)
