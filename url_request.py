@@ -7,18 +7,27 @@ response = requests.get(
     )
 # Преобразуем ответ в .json формат.
 data = response.json()
-# Из данных находим по ключам словаря .json нужное значение
-usd_data = data["Valute"]["USD"]["Value"]
-eur_data = data["Valute"]["EUR"]["Value"]
-gbp_data = data["Valute"]["GBP"]["Value"]
-cny_data = data["Valute"]["CNY"]["Value"]
-aed_data = data["Valute"]["AED"]["Value"]
+
+# Из данных находим по ключам словаря .json нужное значение с ключом
+valute_dict = {
+    "Доллар США": data["Valute"]["USD"]["Value"],
+    "Евро": data["Valute"]["EUR"]["Value"],
+    "Фунт стерлингов": data["Valute"]["GBP"]["Value"],
+    "Дирхам ОАЭ": data["Valute"]["AED"]["Value"],
+    "Юань": data["Valute"]["CNY"]["Value"]
+}
+name_of_data = list(valute_dict.keys())
+valutes_of_data = list(valute_dict.values())
 
 
 if __name__ == "__main__":
     print(data)
-    print(f"Дирхам ОАЭ: {aed_data} руб.")
-    print(f"Юань: {cny_data} руб.")
-    print(f"Фунт стерлингов: {gbp_data} руб.")
-    print(f"Евро: {eur_data} руб.")
-    print(f"Доллар США: {usd_data} руб.")
+    print(f"Доллар США: {valute_dict['Доллар США']} руб.")
+    print(f"Евро: {valute_dict['Евро']} руб.")
+    print(f"Фунт стерлингов: {valute_dict['Фунт стерлингов']} руб.")
+    print(f"Дирхам ОАЭ: {valute_dict['Дирхам ОАЭ']} руб.")
+    print(f"Юань: {valute_dict['Юань']} руб.")
+
+    print("\nКлючи и значения словаря valute_data:")
+    for key, value in valute_dict.items():
+        print(f"{key}: {value}")
