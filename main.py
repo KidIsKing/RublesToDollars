@@ -29,7 +29,7 @@ if info_is_ready:
             else:
                 info = "дешевле"
             info_list.append(
-                f"Изменение цены для \"{name_of_data[i]}\" c "
+                f"\"{name_of_data[i]}\" изменил цену c "
                 f"{price_old_data[i]} руб. на {price_data[i]} руб. "
                 f"Стало {info} на: {abs(price_delta):.3f} руб."
             )
@@ -50,13 +50,13 @@ with open("statistics.txt", "a", encoding="utf-8") as file:
         f"{cny_data} руб. - юань.\n"
     )
     if info_is_ready:
-        file.write("=========== Информация об изменениях ===========\n")
+        file.write("============ Информация об изменениях ============\n")
         for info in info_list:
             file.write(
                 f"{info}\n"
             )
         file.write(
-                "=========== Информация с сайта Центробанка РФ ===========\n\n\n"
+                "========== Информация от Центробанка РФ ==========\n\n\n"
             )
 
 root = Tk()

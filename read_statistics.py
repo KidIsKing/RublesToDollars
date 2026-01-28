@@ -8,8 +8,8 @@ with open("statistics.txt", "r", encoding="utf-8") as file:
 
 if count_lines > 7:
     info_is_ready = True
-    start_file = count_lines - 29
-    end_file = count_lines - 23
+    start_file = count_lines - 14
+    end_file = count_lines - 9
 
     lines_list = []
     for stroka in lines[start_file:end_file]:
